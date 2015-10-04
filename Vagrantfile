@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision "shell",  path: "install_grid.sh"
   config.vm.provision "shell",  path: "provision_asm.sh"
-  config.vm.provision "shell",  path: "install_db.sh"
-  config.vm.provision "shell",  path: "provision_db.sh"
-  config.vm.provision "shell",  path: "create_db.sh"
+  config.vm.provision "shell",  path: "install_db_11g.sh"
+  config.vm.provision "shell",  path: "provision_db_11g.sh"
+  config.vm.provision "shell",  path: "create_db_11g.sh"
 end
