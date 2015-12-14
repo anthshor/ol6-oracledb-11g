@@ -12,7 +12,7 @@ if [ $? -eq 0 ]; then
 	echo "INFO: Database ${ORACLE_SID} exists, skipping database creation."
 else
 	echo "INFO: Creating database ${ORACLE_SID}..."
-	sudo -E -H -u oracle /u01/app/oracle/product/${VERSION}/dbhome_1/bin/dbca -silent -createDatabase -templateName General_Purpose.dbc -gdbName $ORACLE_SID -sid $ORACLE_SID -sysPassword $PASSWORD \
-	-systemPassword $PASSWORD -emConfiguration LOCAL -storageType ASM -diskGroupName +DATA -recoveryGroupName +FRA \
+	sudo -E -H -u oracle /u01/app/oracle/product/${VERSION}/dbhome_1/bin/dbca -silent -createDatabase -templateName /vagrant/fred.dbc -gdbName $ORACLE_SID -sid $ORACLE_SID -sysPassword $PASSWORD \
+	-systemPassword $PASSWORD -emConfiguration LOCAL -sysmanPassword $PASSWORD -dbsnmpPassword $PASSWORD -storageType ASM -diskGroupName +DATA -recoveryGroupName +FRA \
 	-characterset WE8ISO8859P1 -obfuscatedPasswords false -sampleSchema false -asmSysPassword $ASMPWD
 fi
